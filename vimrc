@@ -18,6 +18,8 @@ Plugin 'git://github.com/terryma/vim-multiple-cursors.git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-eunuch'
 Plugin 'dense-analysis/ale.git'
+Plugin 'kevinhui/vim-docker-tools'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -107,4 +109,9 @@ set updatetime=100
 
 " lightline
 set laststatus=2
+
+" Docker.vim
+let g:docker_plugin_version_check = 1
+let g:docker_terminal_open = 'bo'
+let g:docker_open_browser_cmd = 'open'
 
