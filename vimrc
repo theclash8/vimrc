@@ -19,7 +19,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-eunuch'
 Plugin 'dense-analysis/ale.git'
 Plugin 'kevinhui/vim-docker-tools'
-
+Plugin '907th/vim-auto-save.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -43,7 +43,6 @@ let g:notes_directories = ['~/Documents/Notes']
 " Basic stuff
 " --------------------------------
 let g:mapleader = " " " Set leader to spacebar
-set spelllang=en_gb
 set backspace=indent,eol,start " Bring backspace to life
 set hlsearch        " Highlight whole word when searching
 set ignorecase      " Ignore case when searching...
@@ -72,13 +71,13 @@ else
 endif
 
 " Open current file in a new vertical split with '='
-nnoremap = :vsplit<cr>
+" nnoremap = :vsplit<cr>
 
-" Easy split navigation
-map <C-j> <C-w>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" Easy split resize
+nnoremap 7 :res +2<CR> " increase pane by 2 
+nnoremap 8 :res -2<CR> " decrease pane by 2
+nnoremap 9 :vertical res +2<CR> " vertical increase pane by 2
+noremap 0 :vertical res -2<CR> " vertical decrease pane by 2
 
 " Simplify using tabs
 nnoremap ˙ gT
@@ -101,7 +100,10 @@ set noswapfile
 " Nerd tree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
+let NERDTreeShowHidden=1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeWinPos = "right"
 map <C-e> :NERDTreeToggle<CR>
 
 " gitgutter
@@ -115,3 +117,21 @@ let g:docker_plugin_version_check = 1
 let g:docker_terminal_open = 'bo'
 let g:docker_open_browser_cmd = 'open'
 
+" enable AutoSave on Vim start-up
+let g:auto_save = 1 
+
+" Spelling text
+if has("spell")
+  " turn spelling on by default
+  " set spell
+  set spelllang=en_gb,it,es
+
+  " toggle spelling with F4 key
+  map <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+
+  " they were using white on white
+  highlight PmenuSel ctermfg=black ctermbg=lightgray
+
+  " limit it to just the top 10 items
+  set sps=best,10                    
+endif
