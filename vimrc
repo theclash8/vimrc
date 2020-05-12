@@ -1,5 +1,7 @@
+set encoding=UTF-8
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set sessionoptions-=blank
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,6 +22,10 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'dense-analysis/ale.git'
 Plugin 'kevinhui/vim-docker-tools'
 Plugin '907th/vim-auto-save.git'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'wilon/vim-auto-session'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -106,6 +112,20 @@ let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeWinPos = "right"
 map <C-e> :NERDTreeToggle<CR>
 
+"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:NERDTreeGitStatusNodeColorization = 1
+"let g:NERDTreeColorMapCustom = {
+    "\ "Staged"    : "#0ee375",  
+    "\ "Modified"  : "#d9bf91",  
+    "\ "Renamed"   : "#51C9FC",  
+    "\ "Untracked" : "#FCE77C",  
+    "\ "Unmerged"  : "#FC51E6",  
+    "\ "Dirty"     : "#FFBD61",  
+    "\ "Clean"     : "#87939A",   
+    "\ "Ignored"   : "#808080"   
+    "\ }                         
+
+
 " gitgutter
 set updatetime=100
 
@@ -135,3 +155,10 @@ if has("spell")
   " limit it to just the top 10 items
   set sps=best,10                    
 endif
+
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
+
+
+
