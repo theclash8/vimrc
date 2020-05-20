@@ -2,6 +2,9 @@ set encoding=UTF-8
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set sessionoptions-=blank
+"set wildmenu
+"set wildmode=list:full
+set path+=**
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -98,7 +101,7 @@ set splitright
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set expandtab
+"set expandtab
 
 " Disable swap files
 set noswapfile
@@ -110,7 +113,8 @@ let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeWinPos = "right"
-map <C-e> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=30
+map <C-e> :NERDTree<CR>
 
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "let g:NERDTreeGitStatusNodeColorization = 1
@@ -160,5 +164,6 @@ if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
 
-
+" For Tmux
+set term=screen-256color
 
