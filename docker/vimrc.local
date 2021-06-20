@@ -1,0 +1,4 @@
+source /vimrc.d/init.vimrc
+source /vimrc.d/general.vimrc  
+source /vimrc.d/plugins.vimrc
+source /vimrc.d/plugin_config.vimrc	
