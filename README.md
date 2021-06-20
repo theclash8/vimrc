@@ -11,11 +11,11 @@ leader: spacebar
 
 º - Open Nerdtree
 
-<leader><leader> - Bookmark line
+leader leader - Bookmark line
 
-<leader>i - Insert comment to line
+leader i - Insert comment to line
 
-<leader>ff - Open Telescope
+leader ff - Open Telescope
 
 <C-n> - Open nvim-tree
 
