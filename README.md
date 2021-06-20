@@ -15,9 +15,9 @@ leader leader - Bookmark line
 
 leader i - Insert comment to line
 
-leader ff - Open Telescope
+leader ff - Open Telescope 
 
-<C-n> - Open nvim-tree
+\<C-n\> - Open nvim-tree
 
 1 - Switch to left vsplit
 
